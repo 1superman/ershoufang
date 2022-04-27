@@ -9,13 +9,15 @@ import re
 import pandas as pd
 from tqdm import tqdm
 from fake_useragent import UserAgent
+
 def get_html(url):
     response = requests.get(url, headers = {'User-Agent': UserAgent().random, 'Accept-Language': 'zh-CN,zh;q=0.9'})        
     return response 
 
 df = pd.DataFrame()
 quyu = ['jiangan','jianghan','qiaokou','dongxihu','wuchang','qingshan',
-        'hongshan','hanyang','donghugaoxin','jiangxia','caidian','huangbei','xinzhou','tunkoukaifaqu','hannan','xinzhou','tunkoukaifaqu','hannan']
+        'hongshan','hanyang','donghugaoxin','jiangxia','caidian','huangbei',
+        'xinzhou','tunkoukaifaqu','hannan','xinzhou','tunkoukaifaqu','hannan']
 for c in quyu:
     print(c)
     for i in tqdm(range(1,101)):
